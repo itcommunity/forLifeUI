@@ -20,3 +20,9 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
       $scope.mainImageUrl = imageUrl;
     }
   }]);
+
+var forLifeControllers = angular.module('forLifeControllers', []);
+
+forLifeControllers.controller('articleList', ['$scope', 'Article', function($scope, Article){
+    $scope.articles = Article.query();
+}])

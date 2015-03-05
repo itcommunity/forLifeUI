@@ -26,3 +26,24 @@ phonecatApp.config(['$routeProvider',
         redirectTo: '/phones'
       });
   }]);
+
+var forLifeApp = angular.module('forLifeApp', [
+    'ngRoute',
+    //'phonecatAnimations',
+
+    'forLifeControllers',
+    //'phonecatFilters',
+    'forLifeServices'
+]);
+
+forLifeApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/articles', {
+                templateUrl: 'partials/article-list.html',
+                controller: 'articleList'
+            }).
+            otherwise({
+                redirectTo: '/articles'
+            });
+    }]);

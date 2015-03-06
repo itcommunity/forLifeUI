@@ -39,11 +39,23 @@ var forLifeApp = angular.module('forLifeApp', [
 forLifeApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/articles', {
-                templateUrl: 'partials/article-list.html',
-                controller: 'articleList'
+            when('/subjects', {
+                templateUrl: 'partials/subject-list.html',
+                controller: 'SubjectList'
+            }).
+            when('/subjects/:subjectId', {
+                templateUrl: 'partials/subject-detail.html',
+                controller: 'SubjectDetail'
+            }).
+            when('/elements', {
+                templateUrl: 'partials/element-list.html',
+                controller: 'ElementList'
+            }).
+            when('/elements/:elementId', {
+                templateUrl: 'partials/element-detail.html',
+                controller: 'ElementDetail'
             }).
             otherwise({
-                redirectTo: '/articles'
+                redirectTo: '/subjects'
             });
     }]);

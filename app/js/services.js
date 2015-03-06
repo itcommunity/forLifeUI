@@ -2,6 +2,8 @@
 
 /* Services */
 
+var baseUrl='http://localhost:8080/api'
+
 var phonecatServices = angular.module('phonecatServices', ['ngResource']);
 
 phonecatServices.factory('Phone', ['$resource',
@@ -14,7 +16,18 @@ phonecatServices.factory('Phone', ['$resource',
 
 var forLifeServices = angular.module('forLifeServices', ['ngResource']);
 
-forLifeServices.factory('Article', ['$resource', function($resource){
-    return $resource('articles/:articleId.json', {}, {query: {method:'GET', params:{articleId:'articles'}, isArray:true}
+forLifeServices.factory('Element', ['$resource', function($resource){
+    return $resource(baseUrl+'/elements/:elementId', {}, {query: {method:'GET', params:{elementId:''}, isArray:true}
     });
 }]);
+
+forLifeServices.factory('Subject', ['$resource', function($resource){
+    return $resource(baseUrl+'/subjects/:subjectId', {}, {
+        query: {method:'GET', isArray:true},
+        elements: {method:'GET', isArray:true, url: baseUrl+'/subjects/:subjectId/elements'}
+    });
+}]);
+
+//forLifeServices.factory('SubjectElements', ['$resource', function($resource){
+//    return $resource(baseUrl+'/subjects/:subjectId/elements', {}, {query: {method:'GET', isArray:true}});
+//}]);

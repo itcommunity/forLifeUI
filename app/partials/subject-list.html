@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+            <div class=" col-md-12 subjects" ng-repeat="subject in subjects">
+                <a href="#/subjects/{{subject.id}}">{{subject.name}}</a>
+
+                <div ng-controller="SubjectElementList" ng-init="getElements(subject.id)">
+                    <div class=" col-md-2 elements" ng-repeat="element in elements">
+                        <div ng-include=" 'partials/element-preview.html' ">
+                        <!--<a href="#/elements/{{element.id}}">{{element.name}}</a>-->
+                        <!--<div class="title">-->
+                            <!--{{element.title}}-->
+                        </div>
+                    </div>
+                </div>
+                <!--<div ng-bind-html="article.title"></div>-->
+            </div>
+    </div>
+</div>

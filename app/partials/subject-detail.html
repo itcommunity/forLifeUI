@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <div class="row">
+      <h1>{{subject.name}}</h1>
+      <!--<div class="elements" ng-repeat="element in elements" ng-include=" 'partials/element-preview.html' ">-->
+      <div class="elements" ng-repeat="element in elements" ng-include=" '{{subject.name}}' ">
+      </div>
+  </div>
+</div>
